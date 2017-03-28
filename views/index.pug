@@ -1,36 +1,35 @@
 doctype html
-  html
-    head
-      title pug demo
-      include stylesheets.pug
+html
+  head
+    title pug demo
+    include stylesheets.pug
+  body
+    h1 Happy as a pug in a rug
+    //- use a variable
+    //- h2= subtitle
+    //- h2 #{subtitle}
 
-    body
-      h1 Happy as a pug in a rug
-      //- use a variable
-      //- h2= subtitle
-      //- h2 #{subtitle}
+    //- makes a dive without declaring it has a class of name - for id use #
+    .names
+      ul
+        each name in names
+          li Hello #{name}
 
-      //- makes a dive without declaring it has a class of name - for id use #
-      .names
-        ul
-          each name in names
-            li Hello #{name}
+    - let wtf = 'username'
 
-      - let wtf = 'username'
+    input(type='text', placeholder=wtf)
 
-      input(type='text', placeholder=wtf)
+    block content
+      p This is here by default
 
-      block content
-        p This is here by default
+    .footer-nav
+      //- conditional class using object mapping
+      //- active class if loggedIn = true
+      a.foot-nav(class={active: loggedIn === true} href='/') Logout
+      a.foot-nav(class={active: loggedIn === false} href='/') Login/Register
 
-      .footer-nav
-        //- conditional class using object mapping
-        //- active class if loggedIn = true
-        a.foot-nav(class={active: loggedIn === true} href='/') Logout
-        a.foot-nav(class={active: loggedIn === false} href='/') Login/Register
-
-        //- other way to do same thing
-        //- if loggedIn
-        //-   a.foot-nav(class=active href='/') Logout
-        //- else
-        //-   a.foot-nav(class=active href='/') Login
+      //- other way to do same thing
+      //- if loggedIn
+      //-   a.foot-nav(class=active href='/') Logout
+      //- else
+      //-   a.foot-nav(class=active href='/') Login
