@@ -1,0 +1,22 @@
+doctype html
+  html
+    head
+      title pug demo
+
+    body
+      h1 Happy as a pug in a rug
+      //- use a variable
+      //- h2= subtitle
+      //- h2 #{subtitle}
+
+      //- makes a dive without declaring it has a class of name - for id use #
+      .names
+        ul
+          each name in names
+            li Hello #{name}
+
+      - let wtf = 'username'
+
+      input(type='text', placeholder=wtf)
+
+      block content
