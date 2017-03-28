@@ -20,3 +20,16 @@ doctype html
       input(type='text', placeholder=wtf)
 
       block content
+        p This is here by default
+
+      .footer-nav
+        //- conditional class using object mapping
+        //- active class if loggedIn = true
+        a.foot-nav(class={active: loggedIn === true} href='/') Logout
+        a.foot-nav(class={active: loggedIn === false} href='/') Login/Register
+
+        //- other way to do same thing
+        //- if loggedIn
+        //-   a.foot-nav(class=active href='/') Logout
+        //- else
+        //-   a.foot-nav(class=active href='/') Login
